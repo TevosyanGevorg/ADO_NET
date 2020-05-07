@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ADO_NET_01")]
+[assembly: AssemblyTitle("ADO_NET_12")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ADO_NET_01")]
+[assembly: AssemblyProduct("ADO_NET_12")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("907762ea-8ecf-4e9a-8aa1-c5a4f17fe27c")]
+[assembly: Guid("a5344a63-6110-4be7-bff4-6f92045a67fb")]
 
 // Version information for an assembly consists of the following four values:
 //
