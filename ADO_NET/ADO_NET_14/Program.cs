@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Data.Linq;
 
 
-namespace ADO_NET_13
+namespace ADO_NET_14
 {
     class Program
     {
@@ -16,12 +16,14 @@ namespace ADO_NET_13
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
             DataContext dataContext = new DataContext(connectionString);
-            Table<User> users = dataContext.GetTable<User>();
-            foreach(var user in users)
+            var _Users = from u in dataContext.GetTable<User>()
+                        where u.Age < 25
+                        orderby u.FirstName
+                        select u;
+            foreach(var user in _Users)
             {
                 Console.WriteLine($"{user.Id}\t{user.FirstName}\t{user.Age}");
             }
-            Console.ReadLine();
-        }
+        } 
     }
 }

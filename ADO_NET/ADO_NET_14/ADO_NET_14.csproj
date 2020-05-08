@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{86119F4B-05C1-4317-BA04-D32F3446A808}</ProjectGuid>
+    <ProjectGuid>{A54DBBAF-3C7B-45E8-8E80-FB7BA2881DF4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ADO_NET_13</RootNamespace>
-    <AssemblyName>ADO_NET_13</AssemblyName>
+    <RootNamespace>ADO_NET_14</RootNamespace>
+    <AssemblyName>ADO_NET_14</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
