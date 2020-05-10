@@ -16,8 +16,8 @@ namespace ADO_NET_12
             using(SqlConnection sqlConnection=new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                SqlTransaction sqlTransaction = sqlConnection.BeginTransaction();
                 SqlCommand sqlCommand = sqlConnection.CreateCommand();
+                SqlTransaction sqlTransaction = sqlConnection.BeginTransaction();
                 sqlCommand.Transaction = sqlTransaction;
                 try
                 {

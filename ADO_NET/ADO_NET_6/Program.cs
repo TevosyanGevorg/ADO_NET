@@ -22,7 +22,7 @@ namespace ADO_NET_6
                 if(sqlDataReader.HasRows)
                 {
                     Console.WriteLine($"{sqlDataReader.GetName(0)}\t{sqlDataReader.GetName(1)}\t{sqlDataReader.GetName(2)}");
-                    while(sqlDataReader.Read())
+                    while (sqlDataReader.Read())
                     {
                         object id = sqlDataReader.GetValue(0);
                         object name = sqlDataReader.GetValue(1);
@@ -31,7 +31,7 @@ namespace ADO_NET_6
                     }
                     //while (sqlDataReader.Read())
                     //{
-                    //    object id = sqlDataReader["id"];
+                    //    object id = sqlDataReader["ID"];
                     //    object name = sqlDataReader["name"];
                     //    object age = sqlDataReader["age"];
                     //    Console.WriteLine("{0} \t{1} \t{2}", id, name, age);

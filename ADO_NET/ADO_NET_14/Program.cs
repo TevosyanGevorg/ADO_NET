@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Data.Linq;
+using System.IO;
+
 
 
 namespace ADO_NET_14
@@ -15,15 +16,32 @@ namespace ADO_NET_14
         static void Main(string[] args)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
-            DataContext dataContext = new DataContext(connectionString);
-            var _Users = from u in dataContext.GetTable<User>()
-                        where u.Age < 25
-                        orderby u.FirstName
-                        select u;
-            foreach(var user in _Users)
+            List<Image> images = new List<Image>();
+            using (SqlConnection sqlConnection=new SqlConnection(connectionString))
             {
-                Console.WriteLine($"{user.Id}\t{user.FirstName}\t{user.Age}");
+                sqlConnection.Open();
+                string sqlExpression = "SELECT*FROM Images";
+                SqlCommand sqlCommand = new SqlCommand(sqlExpression, sqlConnection);
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while(sqlDataReader.Read())
+                {
+                    int id = sqlDataReader.GetInt32(0);
+                    string filename = sqlDataReader.GetString(1);
+                    string title = sqlDataReader.GetString(2);
+                    byte[] data = (byte[])sqlDataReader.GetValue(3);
+                    Image image = new Image(id, filename, title, data);
+                    images.Add(image);
+                }
             }
+            if(images.Count>0)
+            {
+                using (FileStream fileStream = new FileStream(images[0].FileName, FileMode.OpenOrCreate))
+                {
+                    fileStream.Write(images[0].Data, 0, images[0].Data.Length);
+                    Console.WriteLine($"The Image {images[0].Title} is saved");
+                }
+            }
+            Console.ReadLine();
         } 
     }
 }
