@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 
+
 namespace ADO_NET_15
 {
     public partial class Form1 : Form
@@ -19,14 +20,15 @@ namespace ADO_NET_15
             InitializeComponent();
             string connectionString = ConfigurationManager.ConnectionStrings["ConStr"].ConnectionString;
             string sqlExpression = "SELECT * FROM Users";
-            using(SqlConnection sqlConnectin=new SqlConnection(connectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                sqlConnectin.Open();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlExpression, sqlConnectin);
+                sqlConnection.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlExpression, sqlConnection);
                 DataSet dataSet = new DataSet();
                 sqlDataAdapter.Fill(dataSet);
                 dataGridView1.DataSource = dataSet.Tables[0];
             }
+
         }
     }
 }
