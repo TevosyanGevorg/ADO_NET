@@ -45,8 +45,8 @@ namespace ADO_NET_23
             phones_DataTable.Rows.Add(new object[] { 3, "Samsung Galaxy S6", 500, 2 });
             phones_DataTable.Rows.Add(new object[] { 4, "Samsung Galaxy Ace 2", 200, 2 });
 
-            var query = from phone in dataSet.Tables["Phones"].AsEnumerable().ToList()
-                        from company in dataSet.Tables["Companies"].AsEnumerable().ToList()
+            var query = from phone in dataSet.Tables["Phones"].AsEnumerable()
+                        from company in dataSet.Tables["Companies"].AsEnumerable()
                         where (int)phone["CompanyId"] == (int)company["Id"]
                         where (decimal)phone["Price"] > 200
                         select new { Model = phone["Name"], Price = phone["Price"], Company = company["Name"] };
